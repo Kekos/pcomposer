@@ -3,13 +3,13 @@
 namespace Composer\PerformantComposer;
 
 use Composer\Composer;
+use Composer\Installer\LibraryInstaller as BaseLibraryInstaller;
 use Composer\IO\IOInterface;
 use Composer\Package\PackageInterface;
-use Composer\PerformantComposer\PackageUtils;
-use Composer\Repository\InstalledRepositoryInterface;
-use Composer\Installer\LibraryInstaller as BaseLibraryInstaller;
-use Composer\PerformantComposer\Installer\Filesystem\SymlinkFilesystem;
 use Composer\PerformantComposer\Installer\Config\SharedPackageInstallerConfig;
+use Composer\PerformantComposer\Installer\Filesystem\SymlinkFilesystem;
+use Composer\PerformantComposer\Package\PackageDataManagerInterface;
+use Composer\Repository\InstalledRepositoryInterface;
 
 class LibraryInstaller extends BaseLibraryInstaller
 {
