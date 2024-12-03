@@ -10,6 +10,7 @@ use Composer\PerformantComposer\Installer\Config\SharedPackageInstallerConfig;
 use Composer\PerformantComposer\Installer\Filesystem\SymlinkFilesystem;
 use Composer\PerformantComposer\Package\PackageDataManagerInterface;
 use Composer\Repository\InstalledRepositoryInterface;
+use Composer\Util\Filesystem;
 
 class LibraryInstaller extends BaseLibraryInstaller
 {
@@ -93,7 +94,7 @@ class LibraryInstaller extends BaseLibraryInstaller
 
     public function install(InstalledRepositoryInterface $repo, PackageInterface $package)
     {
-        if (!$this->filesystem->isReadable($this->getInstallPath($package)) || $this->filesystem->isDirEmpty($this->getInstallPath($package))) {
+        if (!Filesystem::isReadable($this->getInstallPath($package)) || $this->filesystem->isDirEmpty($this->getInstallPath($package))) {
             $prom = parent::install($repo, $package);
         } elseif (!$repo->hasPackage($package)) {
             $prom = \React\Promise\resolve();
