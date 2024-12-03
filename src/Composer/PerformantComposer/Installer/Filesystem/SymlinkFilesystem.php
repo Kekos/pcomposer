@@ -62,7 +62,7 @@ class SymlinkFilesystem extends Filesystem
         }
     }
 
-    public function unlink($link)
+    public function unlink(string $link)
     {
         if (defined('PHP_WINDOWS_VERSION_BUILD')) {
             return exec('junction -d ' . escapeshellarg($link));
